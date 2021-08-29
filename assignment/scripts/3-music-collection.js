@@ -3,19 +3,19 @@ console.log('***** Music Collection *****')
 let recordCollection = [];
 // - Add a function named `addToCollection`. This function should:
   //   - Take in the album's `title`, `artist`, `yearPublished` as input parameters 
-function addToCollection( newTitle, newArtist, newYearPublished ){ 
+function addToCollection( newTitle, newArtist, newYearPublished, newTracks ){ 
 //     - Create a new object having the above properties
-  let newRecord = {
+  let album = {
       title : newTitle,
       artist : newArtist,
-      year: newYearPublished
-    }; //end object literal
+      year : newYearPublished,
+      tracks : newTracks
+    } //end object literal
 //   - Add the new object to the end of the `collection` array
-recordCollection.push( newRecord );
+recordCollection.push( album );
 //   - Return the newly created object
-return console.log( 'New record added to the collection:', newRecord );
-} //end addToCollection
-
+return console.log( 'New record added to the collection:', album );
+}; //end addToCollection
 
 // - Test the `addToCollection` function:
     //   - Add 6 albums to your collection. 
@@ -26,7 +26,6 @@ return console.log( 'New record added to the collection:', newRecord );
 addToCollection( 'Chromatica', 'Lady Gaga', 2020 );
 addToCollection( 'Happier Than Ever', 'Billie Eilish', 2021 );
 addToCollection( 'Joanne', 'Lady Gaga', 2016 );
-addToCollection( 'Future Nostalgia', 'Dua Lipa', 2020 );
 addToCollection( 'Black Holes and Revelations', 'Muse', 2006 );
 addToCollection( 'The 2nd Law', 'Muse', 2012 );
 
@@ -74,7 +73,7 @@ findByArtist( 'Elton John' );
 
 
 // > When testing your functions, write all tests in the JavaScript file!
-//////
+///////////////////////////////////////////
 // Stretch Goals 
 // - Create a function called `search`. This function should:
 function search( searchArtist, searchYear ){
