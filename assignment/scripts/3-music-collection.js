@@ -23,12 +23,12 @@ return console.log( 'New record added to the collection:', newRecord );
     //   - (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
     //   - Console.log each album as added using the returned value.
 
-addToCollection( 'Chromatica', 'Lady Gaga', '2020' );
-addToCollection( 'Happier Than Ever', 'Billie Eilish', '2021' );
-addToCollection( 'Joanne', 'Lady Gaga', '2016' );
-addToCollection( 'Future Nostalgia', 'Dua Lipa', '2020' );
-addToCollection( 'Black Holes and Revelations', 'Muse', '2006' );
-addToCollection( 'The 2nd Law', 'Muse', '2012' );
+addToCollection( 'Chromatica', 'Lady Gaga', 2020 );
+addToCollection( 'Happier Than Ever', 'Billie Eilish', 2021 );
+addToCollection( 'Joanne', 'Lady Gaga', 2016 );
+addToCollection( 'Future Nostalgia', 'Dua Lipa', 2020 );
+addToCollection( 'Black Holes and Revelations', 'Muse', 2006 );
+addToCollection( 'The 2nd Law', 'Muse', 2012 );
 
 //   - After all are added, console.log the `collection` array.
 console.log( 'Record collection:', recordCollection);
@@ -77,23 +77,37 @@ findByArtist( 'Elton John' );
 //////
 // Stretch Goals 
 // - Create a function called `search`. This function should:
-function search( artist, year ){
-    let searchObject = {
-        artist : 
-
-    }
+function search( searchArtist, searchYear ){
+    let searchArtistYearMatches = [];
 //   - Take an input parameter for a search criteria object.
 // Create your solution based on a search object that has these properties:
 // { artist: 'Ray Charles', year: 1957 }
 //   - The returned output from `search` should meet these requirements:
-for( let i = 0; )
-//     - Return a new array of all items in the `collection` matching *all* of the search criteria.
-//     - If no results are found, return an empty array.
-//     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
-} // end search
+    for( let i = 0; i<recordCollection.length; i++ ){
+    //  - Return a new array of all items in the `collection` matching *all* of the search criteria.
+        if( searchArtist === recordCollection[i].artist && searchYear === recordCollection[i].year ){
+        searchArtistYearMatches.push( recordCollection[i] );
+        return console.log( 'here are the search results matching all the criteria:', searchArtistYearMatches );
+        } // end if 
+        else if( !searchArtist && !searchYear ){
+        return console.log ( 'here are all of the albums:', recordCollection ); 
+        } // end else if
+        else if( searchArtist !== recordCollection[i].artist || searchYear !== recordCollection[i].year ){
+        return console.log( 'here are the search results:', searchArtistYearMatches );
+        } // end else if 
+         // end else
+    //     - If no results are found, return an empty array.
+    //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.     
+    }// end for loop
+}; // end search
 
+search( 'Lady Gaga', 2020 ); //both criteria met 
+search( 'Banana Hammock', 2020 ); // one criteria doesn't match
+search( 'Lady Gaga', 1998 ); // the other criteria doesn't match
+search( ); //no input given
 
-// - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
+// - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`.
+// You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
 //   - Update `search` to allow a `trackName` search criteria.
 //   - Update the `showCollection` function to display the list of tracks for each album with its name and duration.
