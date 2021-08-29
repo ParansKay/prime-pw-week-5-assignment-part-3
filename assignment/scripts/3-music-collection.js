@@ -86,6 +86,7 @@ function search( artist, year ){
 // Create your solution based on a search object that has these properties:
 // { artist: 'Ray Charles', year: 1957 }
 //   - The returned output from `search` should meet these requirements:
+for( let i = 0; )
 //     - Return a new array of all items in the `collection` matching *all* of the search criteria.
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
